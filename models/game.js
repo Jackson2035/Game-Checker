@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const bookSchema = new mongoose.Schema({
+const gameSchema = new mongoose.Schema({
   title: {
     type: String,
     required: true
@@ -29,18 +29,18 @@ const bookSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  author: {
+  developer: {
     type: mongoose.Schema.Types.ObjectId,
     required: true,
-    ref: 'Author'
+    ref: 'Developer'
   }
 })
 
-bookSchema.virtual('coverImagePath').get(function() {
+gameSchema.virtual('coverImagePath').get(function() {
   if (this.coverImage != null && this.coverImageType != null) {
     return `data:${this.coverImageType};charset=utf-8;base64,${this.coverImage.toString('base64')}`
   }
 })
 
-module.exports = mongoose.model('Book', bookSchema)
+module.exports = mongoose.model('Game', gameSchema)
 

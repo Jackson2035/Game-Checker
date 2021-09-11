@@ -1,9 +1,9 @@
-.author-row {
+.developer-row {
     display: flex;
     justify-content: space-between;
     margin-bottom: 1rem;
 }
 
-.author-name {
+.developer-name {
     font-size: 1.5rem;
 }

@@ -1,0 +1,21 @@
+<h2 class="page-header"><%= game.title %></h2>
+<div class="game-details">
+    <div>
+        <img class="game-cover" src="<%= game.coverImagePath %>">
+        <div class="game-details-btn-grid">
+            <a class="btn btn-primary" href="/games/<%= game.id %>/edit">Edit</a>
+            <%- include('../partials/deleteForm', { url: `/games/${game.id}` }) %>
+            <a class="btn btn-primary game-details-developer-button" href="/developers/<%= game.developer.id %>">View Developer</a>
+        </div>
+    </div>
+    <div class="game-details-grid">
+        <div class="game-details-label">Developer:</div>
+        <div><%= game.developer.name %></div>
+        <div class="game-details-label">Publish Date:</div>
+        <div><%= game.publishDate.toDateString() %></div>
+        <div class="game-details-label">Page Count:</div>
+        <div><%= game.pageCount %></div>
+        <div class="game-details-label">Description:</div>
+        <div><%= game.description %></div>
+    </div>
+</div>

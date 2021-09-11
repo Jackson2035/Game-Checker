@@ -1,0 +1,10 @@
+<h2 class="page-header"><%= developer.name %></h2>
+<div class="btn-row">
+    <a class="btn btn-primary" href="/developers/<%= developer.id %>/edit">Edit</a>
+    <%- include('../partials/deleteForm',
+                { url: `/developers/${developer.id}` }) %>
+</div>
+<% if (gamesByDeveloper.length > 0) { %>
+    <h2 class="page-header">Games By Developer</h2>
+    <%- include('../partials/gameGrid', {games: gamesByDeveloper }) %>
+<% } %>
