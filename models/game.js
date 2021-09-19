@@ -8,11 +8,11 @@ const gameSchema = new mongoose.Schema({
   description: {
     type: String
   },
-  publishDate: {
+  releaseDate: {
     type: Date,
     required: true
   },
-  pageCount: {
+  playTime: {
     type: Number,
     required: true
   },

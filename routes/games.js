@@ -11,11 +11,11 @@ router.get('/', async (req, res) => {
   if (req.query.title != null && req.query.title != '') {
     query = query.regex('title', new RegExp(req.query.title, 'i'))
   }
-  if (req.query.publishedBefore != null && req.query.publishedBefore != '') {
-    query = query.lte('publishDate', req.query.publishedBefore)
+  if (req.query.releasedBefore != null && req.query.releasedBefore != '') {
+    query = query.lte('releaseDate', req.query.releasedBefore)
   }
-  if (req.query.publishedAfter != null && req.query.publishedAfter != '') {
-    query = query.gte('publishDate', req.query.publishedAfter)
+  if (req.query.releasedAfter != null && req.query.releasedAfter != '') {
+    query = query.gte('releaseDate', req.query.releasedAfter)
   }
   try {
     const games = await query.exec()
@@ -38,8 +38,8 @@ router.post('/', async (req, res) => {
     const game = new Game({
       title: req.body.title,
       developer: req.body.developer,
-      publishDate: new Date(req.body.publishDate),
-      pageCount: req.body.pageCount,
+      releaseDate: new Date(req.body.releaseDate),
+      playTime: req.body.playTime,
       description: req.body.description
     })
     saveCover(game, req.body.cover)
@@ -80,8 +80,8 @@ router.put('/:id', async (req, res) => {
     game = await Game.findById(req.params.id)
     game.title = req.body.title
     game.developer = req.body.developer
-    game.publishDate = new Date(req.body.publishDate)
-    game.pageCount = req.body.pageCount
+    game.releaseDate = new Date(req.body.releaseDate)
+    game.playTime = req.body.playTime
     game.description = req.body.description
     if (req.body.cover != null && req.body.cover !== '') {
       saveCover(game, req.body.cover)
