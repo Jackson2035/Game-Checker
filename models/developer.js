@@ -5,6 +5,13 @@ const developerSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true
+    },
+    location: {
+        type: String
+    },
+    established: {
+        type: Number,
+        required: true 
     }
 })
 

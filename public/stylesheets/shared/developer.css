@@ -7,3 +7,10 @@
 .developer-name {
     font-size: 1.5rem;
 }
+
+.developer-details-label {
+    font-size: 1.2rem;
+    font-weight: 500;
+    align-self: flex-start;
+    padding-bottom: 2rem;
+}

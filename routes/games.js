@@ -40,6 +40,8 @@ router.post('/', async (req, res) => {
       developer: req.body.developer,
       releaseDate: new Date(req.body.releaseDate),
       playTime: req.body.playTime,
+      publisher: req.body.publisher,
+      genre: req.body.genre,
       description: req.body.description
     })
     saveCover(game, req.body.cover)
@@ -82,6 +84,8 @@ router.put('/:id', async (req, res) => {
     game.developer = req.body.developer
     game.releaseDate = new Date(req.body.releaseDate)
     game.playTime = req.body.playTime
+    game.publisher = req.body.publisher
+    game.genre = req.body.genre
     game.description = req.body.description
     if (req.body.cover != null && req.body.cover !== '') {
       saveCover(game, req.body.cover)

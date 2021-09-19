@@ -1,4 +1,6 @@
 <h2 class="page-header"><%= developer.name %></h2>
+<div class="developer-details-label">Location: <%= developer.location %></div> 
+<div class="developer-details-label">Established: <%= developer.established %></div> 
 <div class="btn-row">
     <a class="btn btn-primary" href="/developers/<%= developer.id %>/edit">Edit</a>
     <%- include('../partials/deleteForm',

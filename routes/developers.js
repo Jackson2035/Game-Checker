@@ -28,7 +28,9 @@ router.get('/new', (req, res) => {
 // Create Developer Route
 router.post('/', async (req, res) => {
     const developer = new Developer({
-      name: req.body.name
+      name: req.body.name,
+      location: req.body.location,
+      established: req.body.established
     })
     try {
       const newDeveloper = await developer.save()
@@ -68,6 +70,8 @@ router.put('/:id', async (req, res) => {
     try {
         developer = await Developer.findById(req.params.id)
         developer.name = req.body.name
+        developer.location = req.body.location
+        developer.established = req.body.established
         await developer.save()
         res.redirect(`/developers/${developer.id}`)
     } catch {

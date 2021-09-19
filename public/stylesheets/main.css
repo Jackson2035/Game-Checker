@@ -35,6 +35,11 @@ body {
     font-weight: 500;
 }
 
+.page-header-small {
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+
 .error-message {
     color: hsl(var(--color-danger-hue), 100%, 50%);
 }
